@@ -1,5 +1,5 @@
 CCPP=g++
-CFLAGS=-std=c++1z `sdl2-config --libs` -Wall -lSDL2_image -lSDL2_mixer -lSDL2_ttf# -g
+CFLAGS=-std=c++1z `sdl2-config --libs` -Wall -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm -ggdb3
 DEPS=Game.h State.h Sprite.h Music.h Constants.h
 OBJ=Main.o Game.o State.o Sprite.o Music.o
 

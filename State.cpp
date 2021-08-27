@@ -8,8 +8,8 @@ State::State(){
 	bg = Sprite();
 
 	try{
-		music = Music(MUSIC_PATH);
-		//music.Play();
+		music.Open(MUSIC_PATH);
+		music.Play();
 	}catch(const char* error_msg){
 			throw error_msg;
 		}

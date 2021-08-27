@@ -10,16 +10,17 @@ Music::Music(string file){
 	music = nullptr;
 
 	try{
-		//Open(file);
+		Open(file);
 	}catch(const char* error_msg){
 			throw error_msg;
 		}
+	printf("ultima coisa em music\n");
 }
 
 void Music::Play(int times){
 	if(music != nullptr){
 		try{
-			//Mix_PlayMusic(music, times);
+			Mix_PlayMusic(music, times);
 		}catch(const char* error_msg){
 				throw error_msg;
 			}
@@ -30,7 +31,7 @@ void Music::Play(int times){
 }
 
 void Music::Stop(int msToStop){
-	//Mix_FadeOutMusic(msToStop);
+	Mix_FadeOutMusic(msToStop);
 }
 
 void Music::Open(string file){
@@ -48,6 +49,9 @@ bool Music::IsOpen(){
 }
 
 Music::~Music(){
-	Stop();
-	//Mix_FreeMusic(music);
+	if(music != nullptr){
+		Stop();
+		Mix_FreeMusic(music);
+		music = nullptr;
+	}
 }

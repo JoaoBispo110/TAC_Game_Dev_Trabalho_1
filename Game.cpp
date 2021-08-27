@@ -19,12 +19,12 @@ Game::Game(string title, int width, int height){
 		throw SDL_GetError();
 	}
 
-	if( Mix_Init(0/*MIX_INIT_FLAC | MIX_INIT_OGG | MIX_INIT_MID | MIX_INIT_MP3 | MIX_INIT_MOD*/) !=
-		(0/*MIX_INIT_FLAC | MIX_INIT_OGG | MIX_INIT_MID | MIX_INIT_MP3 | MIX_INIT_MOD*/) ){
+	if( Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) != 0){
 		throw SDL_GetError();
 	}
 
-	if( Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) != 0){
+	if( Mix_Init(MIX_INIT_FLAC | MIX_INIT_OGG | MIX_INIT_MID | MIX_INIT_MP3 | MIX_INIT_MOD) !=
+		(MIX_INIT_FLAC | MIX_INIT_OGG | MIX_INIT_MID | MIX_INIT_MP3 | MIX_INIT_MOD) ){
 		throw SDL_GetError();
 	}
 
